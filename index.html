@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atelier Aurora | Alta Costura e Sob Medida</title>
+  <meta
+    name="description"
+    content="Atelier Aurora: peças sob medida, alta costura, ajustes refinados e atendimento exclusivo para ocasiões especiais."
+  />
+  <style>
+    :root {
+      --bg: #f7f1ea;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #ffffff;
+      --text: #2a1f1a;
+      --muted: #6f625c;
+      --primary: #9c6b4f;
+      --primary-dark: #7f523b;
+      --accent: #d9b08c;
+      --line: rgba(156, 107, 79, 0.16);
+      --shadow: 0 20px 50px rgba(69, 40, 24, 0.12);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(217, 176, 140, 0.35), transparent 34%),
+        radial-gradient(circle at top right, rgba(156, 107, 79, 0.16), transparent 30%),
+        linear-gradient(180deg, #fbf7f2 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      overflow-x: hidden;
+      padding-top: 84px;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      width: 100%;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 241, 234, 0.76);
+      border-bottom: 1px solid rgba(156, 107, 79, 0.12);
+    }
+
+    .header__inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand__mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(156, 107, 79, 0.28);
+      font-weight: 800;
+    }
+
+    .brand__text {
+      line-height: 1.1;
+    }
+
+    .brand__text small {
+      display: block;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      margin-top: 2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--primary-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn--primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow: 0 18px 34px rgba(156, 107, 79, 0.28);
+    }
+
+    .btn--secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      padding: 64px 0 28px;
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(156, 107, 79, 0.08);
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .hero__title {
+      margin: 0;
+      font-size: clamp(2.6rem, 5vw, 5.2rem);
+      line-height: 0.97;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+    }
+
+    .hero__title span {
+      display: block;
+      color: var(--primary);
+    }
+
+    .hero__text {
+      margin: 22px 0 0;
+      max-width: 56ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero__meta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .stat {
+      min-width: 150px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(79, 52, 36, 0.05);
+    }
+
+    .stat__value {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1;
+    }
+
+    .stat__label {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .hero__panel {
+      position: relative;
+      min-height: 640px;
+      border-radius: calc(var(--radius) + 12px);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.22)),
+        url("assets/img9.jpg") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .hero__panel::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 28px;
+      pointer-events: none;
+    }
+
+    .hero__panel-card {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 22px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .panel-card__title {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .panel-card__text {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .section {
+      padding: 86px 0;
+      scroll-margin-top: 116px;
+    }
+
+    .section__head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .section__title {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .section__subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 58ch;
+      line-height: 1.8;
+    }
+
+    .chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .service__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(156, 107, 79, 0.12), rgba(217, 176, 140, 0.32));
+      color: var(--primary-dark);
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+
+    .service__title {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .service__text {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .photo-library {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .photo-album {
+      border: 0;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      display: grid;
+      gap: 14px;
+      width: 100%;
+      text-align: left;
+      color: inherit;
+    }
+
+    .photo-album:focus-visible,
+    .gallery-modal__close:focus-visible,
+    .gallery-modal__nav-button:focus-visible,
+    .gallery-modal__thumb:focus-visible {
+      outline: 3px solid rgba(156, 107, 79, 0.45);
+      outline-offset: 3px;
+    }
+
+    .photo-album__visual {
+      min-height: 322px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      box-shadow: var(--shadow);
+      background: linear-gradient(180deg, rgba(17, 11, 8, 0.08), rgba(17, 11, 8, 0.22));
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .photo-album:hover .photo-album__visual {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 54px rgba(69, 40, 24, 0.16);
+    }
+
+    .photo-album__visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(180deg, rgba(24, 17, 14, 0.02), rgba(24, 17, 14, 0.38));
+      pointer-events: none;
+    }
+
+    .photo-album__mosaic {
+      position: absolute;
+      inset: 16px;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .photo-album__mosaic-item {
+      border-radius: 18px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .photo-album__mosaic-item:nth-child(1) {
+      background-image: linear-gradient(180deg,  rgba(24, 17, 14, 0.08), rgba(24, 17, 14, 0.28)), var(--mosaic-1);
+    }
+
+    .photo-album__mosaic-item:nth-child(2) {
+      background-image: linear-gradient(180deg, rgba(24, 17, 14, 0.08), rgba(24, 17, 14, 0.28)), var(--mosaic-2);
+    }
+
+    .photo-album__mosaic-item:nth-child(3) {
+      background-image: linear-gradient(180deg, rgba(24, 17, 14, 0.08), rgba(24, 17, 14, 0.28)), var(--mosaic-3);
+    }
+
+    .photo-album__mosaic-item:nth-child(4) {
+      background-image: linear-gradient(180deg, rgba(24, 17, 14, 0.08), rgba(24, 17, 14, 0.28)), var(--mosaic-4);
+    }
+
+    .photo-album__visual--gala {
+      --mosaic-1: url("assets/img9.jpg");
+      --mosaic-2: url("assets/img13.jpg");
+      --mosaic-3: url("assets/img11.jpg");
+      --mosaic-4: url("assets/img12.jpg");
+    }
+
+    .photo-album__visual--autorais {
+      --mosaic-1: url("assets/img4.jpg");
+      --mosaic-2: url("assets/img2.jpg");
+      --mosaic-3: url("assets/img1.jpg");
+      --mosaic-4: url("assets/img6.jpg");
+    }
+
+    .photo-album__visual--eventos {
+      --mosaic-1: url("assets/img10.jpg");
+      --mosaic-2: url("assets/img3.jpg");
+      --mosaic-3: url("assets/img7.jpg");
+      --mosaic-4: url("assets/img8.jpg");
+    }
+
+    .photo-album__badge {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      z-index: 2;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--primary-dark);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .photo-album__summary {
+      padding: 20px 22px 22px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      display: grid;
+      gap: 10px;
+      box-shadow: 0 16px 34px rgba(69, 40, 24, 0.06);
+    }
+
+    .photo-album__eyebrow {
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .photo-album__summary h3 {
+      margin: 0;
+      font-size: 1.18rem;
+      line-height: 1.2;
+    }
+
+    .photo-album__summary p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .photo-album__meta {
+      color: var(--primary-dark);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .gallery-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .gallery-modal.is-open {
+      display: flex;
+    }
+
+    .gallery-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 18, 14, 0.62);
+      backdrop-filter: blur(8px);
+    }
+
+    .gallery-modal__dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1120px);
+      max-height: calc(100vh - 40px);
+      overflow: auto;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(156, 107, 79, 0.14);
+      box-shadow: 0 30px 80px rgba(21, 13, 9, 0.28);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .gallery-modal__close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .gallery-modal__main {
+      position: relative;
+      min-height: 520px;
+      background: #1b130f;
+    }
+
+    .gallery-modal__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-modal__nav {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .gallery-modal__nav-button {
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--primary-dark);
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .gallery-modal__info {
+      padding: 28px;
+      display: grid;
+      align-content: start;
+      gap: 18px;
+    }
+
+    .gallery-modal__eyebrow {
+      margin: 0;
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .gallery-modal__title {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .gallery-modal__description {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .gallery-modal__thumbs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-modal__thumb {
+      border: 0;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      border-radius: 18px;
+      overflow: hidden;
+      opacity: 0.65;
+      transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-modal__thumb:hover,
+    .gallery-modal__thumb.is-active {
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(69, 40, 24, 0.18);
+    }
+
+    .gallery-modal__thumb img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .about__visual {
+      border-radius: var(--radius);
+      min-height: 470px;
+      background:
+        linear-gradient(180deg, rgba(33, 22, 17, 0.1), rgba(33, 22, 17, 0.28)),
+        url("assets/img9.jpg") center/cover;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about__visual-badge {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .about__content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about__text {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .timeline__item {
+      padding: 18px 18px 18px 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid var(--line);
+    }
+
+    .timeline__item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .testimonial {
+      display: grid;
+      gap: 16px;
+    }
+
+    .faq {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .faq__item {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq__question {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.35;
+      color: var(--primary-dark);
+    }
+
+    .faq__answer {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .testimonial__quote {
+      margin: 0;
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .testimonial__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      font-weight: 800;
+    }
+
+    .author__name {
+      display: block;
+      font-weight: 700;
+    }
+
+    .author__role {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 3px;
+    }
+
+    .cta {
+      padding: 28px;
+      border-radius: calc(var(--radius) + 4px);
+      background:
+        linear-gradient(135deg, rgba(156, 107, 79, 0.96), rgba(127, 82, 59, 0.96)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06));
+      color: #fff;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .cta p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.8;
+      max-width: 54ch;
+    }
+
+    .cta__actions {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn--light {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary-dark);
+    }
+
+    .footer {
+      padding: 34px 0 50px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-top: 1px solid rgba(156, 107, 79, 0.12);
+      padding-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer__links a:hover {
+      color: var(--primary-dark);
+    }
+
+    @media (max-width: 980px) {
+      .page {
+        padding-top: 84px;
+      }
+
+      .hero__grid,
+      .about,
+      .cta,
+      .faq {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__panel {
+        min-height: 520px;
+      }
+
+      .services,
+      .photo-library,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-modal__dialog {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-modal__main {
+        min-height: 360px;
+      }
+
+      .gallery-modal__thumbs {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .section__head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .cta__actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding-top: 126px;
+      }
+
+      .header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero__title {
+        max-width: none;
+      }
+
+      .hero__actions,
+      .hero__meta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .stat {
+        width: 100%;
+      }
+
+      .section {
+        padding: 68px 0;
+        scroll-margin-top: 146px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="#top" aria-label="Atelier Tujocia-Pama">
+          <span class="brand__mark">A</span>
+          <span class="brand__text">
+            Atelier Tujocia-Pama
+            <small>Alta costura</small>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a href="#servicos">Serviços</a>
+          <a href="#portfolio">Portfólio</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero__grid">
+          <div>
+            <span class="hero__eyebrow">Atendimento exclusivo • Sob medida • Acabamento impecável</span>
+            <h1 class="hero__title">
+              Peças que vestem
+              <span>histórias inesquecíveis.</span>
+            </h1>
+            <p class="hero__text">
+              No Atelier Tujocia-Pama, criamos vestidos, fatos e peças autorais com atenção absoluta aos detalhes.
+              Cada criação é desenhada para realçar sua personalidade com elegância, conforto e sofisticação.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#contato">Agendar consulta</a>
+              <a class="btn btn--secondary" href="#portfolio">Ver coleções</a>
+            </div>
+
+            <div class="hero__meta" aria-label="Destaques do atelier">
+              <div class="stat">
+                <span class="stat__value">12+</span>
+                <span class="stat__label">anos de experiência</span>
+              </div>
+              <div class="stat">
+                <span class="stat__value">350+</span>
+                <span class="stat__label">peças sob medida</span>
+              </div>
+              <div class="stat">
+                <span class="stat__value">98%</span>
+                <span class="stat__label">clientes recomendam</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__panel" aria-label="Imagem principal do atelier">
+            <div class="hero__panel-card">
+              <h2 class="panel-card__title">Consultoria de estilo personalizada</h2>
+              <p class="panel-card__text">
+                Unimos modelagem, escolha de tecidos e provas estratégicas para entregar uma experiência premium do início ao fim.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servicos">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">Serviços do atelier</h2>
+              <p class="section__subtitle">
+                Desenvolvemos peças únicas e oferecemos um processo cuidadoso para garantir caimento, personalidade e sofisticação.
+              </p>
+            </div>
+            <div class="chips" aria-label="Categorias">
+              <span class="chip">Alta costura</span>
+              <span class="chip">Noivas</span>
+              <span class="chip">Eventos</span>
+              <span class="chip">Ajustes finos</span>
+            </div>
+          </div>
+
+          <div class="services">
+            <article class="card">
+              <div class="service__icon">✦</div>
+              <h3 class="service__title">Criação sob medida</h3>
+              <p class="service__text">
+                Projetamos peças exclusivas a partir do seu estilo, ocasião e silhueta, com modelagem precisa e acabamento de luxo.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="service__icon">✧</div>
+              <h3 class="service__title">Ajustes refinados</h3>
+              <p class="service__text">
+                Ajustamos vestidos, fatos e peças especiais para garantir conforto, harmonia visual e caimento perfeito.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="service__icon">❋</div>
+              <h3 class="service__title">Consultoria de estilo</h3>
+              <p class="service__text">
+                Ajudamos na seleção de tecidos, paleta e modelagem ideal para criar uma imagem elegante e marcante.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="portfolio">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">Biblioteca de fotos</h2>
+              <p class="section__subtitle">
+                Toque em qualquer card para abrir uma coleção com várias imagens e explorar os detalhes de cada trabalho.
+              </p>
+            </div>
+          </div>
+
+          <div class="photo-library">
+            <button class="photo-album" type="button" data-album="gala" aria-haspopup="dialog" aria-controls="gallery-modal">
+              <span class="photo-album__visual photo-album__visual--gala">
+                <span class="photo-album__mosaic" aria-hidden="true">
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                </span>
+                <span class="photo-album__badge">4 fotos</span>
+              </span>
+              <span class="photo-album__summary">
+                <span class="photo-album__eyebrow">Coleção 01</span>
+                <h3>Vestidos de gala</h3>
+                <p>Silhuetas elegantes, brilho sutil e acabamento refinado para ocasiões marcantes.</p>
+              </span>
+            </button>
+
+            <button class="photo-album" type="button" data-album="autorais" aria-haspopup="dialog" aria-controls="gallery-modal">
+              <span class="photo-album__visual photo-album__visual--autorais">
+                <span class="photo-album__mosaic" aria-hidden="true">
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                </span>
+                <span class="photo-album__badge">4 fotos</span>
+              </span>
+              <span class="photo-album__summary">
+                <span class="photo-album__eyebrow">Coleção 02</span>
+                <h3>Peças autorais</h3>
+                <p>Modelos únicos com linguagem contemporânea e detalhes feitos à mão.</p>
+              </span>
+            </button>
+
+            <button class="photo-album" type="button" data-album="eventos" aria-haspopup="dialog" aria-controls="gallery-modal">
+              <span class="photo-album__visual photo-album__visual--eventos">
+                <span class="photo-album__mosaic" aria-hidden="true">
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                  <span class="photo-album__mosaic-item"></span>
+                </span>
+                <span class="photo-album__badge">4 fotos</span>
+              </span>
+              <span class="photo-album__summary">
+                <span class="photo-album__eyebrow">Coleção 03</span>
+                <h3>Ocasiões especiais</h3>
+                <p>Peças pensadas para celebrar com conforto, presença e elegância em qualquer evento.</p>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="gallery-modal" id="gallery-modal" aria-hidden="true">
+        <div class="gallery-modal__backdrop" data-close-gallery></div>
+        <div class="gallery-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
+          <button class="gallery-modal__close" type="button" aria-label="Fechar galeria" data-close-gallery>✕</button>
+          <div class="gallery-modal__main">
+            <img class="gallery-modal__image" id="gallery-modal-image" src="" alt="" />
+            <div class="gallery-modal__nav">
+              <button class="gallery-modal__nav-button" type="button" data-gallery-prev aria-label="Foto anterior">←</button>
+              <button class="gallery-modal__nav-button" type="button" data-gallery-next aria-label="Próxima foto">→</button>
+            </div>
+          </div>
+          <div class="gallery-modal__info">
+            <p class="gallery-modal__eyebrow" id="gallery-modal-kicker"></p>
+            <h3 class="gallery-modal__title" id="gallery-modal-title"></h3>
+            <p class="gallery-modal__description" id="gallery-modal-description"></p>
+            <div class="gallery-modal__thumbs" id="gallery-modal-thumbs" aria-label="Miniaturas da coleção"></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section" id="sobre">
+        <div class="container about">
+          <div class="about__visual">
+            <span class="about__visual-badge">Ateliê artesanal • atendimento premium</span>
+          </div>
+
+          <div class="about__content">
+            <div class="card">
+              <h2 class="section__title">Sobre o Atelier Tujocia-Pama</h2>
+              <p class="about__text">
+                Somos um atelier dedicado a transformar ideias em peças memoráveis. Trabalhamos com uma abordagem humana e minuciosa,
+                respeitando o corpo, a ocasião e a identidade de cada cliente.
+              </p>
+            </div>
+
+            <div class="timeline">
+              <div class="timeline__item">
+                <strong>1. Briefing personalizado</strong>
+                Conversamos sobre referências, objetivos e prazo para definir o melhor caminho criativo.
+              </div>
+              <div class="timeline__item">
+                <strong>2. Desenho e seleção de tecidos</strong>
+                Escolhemos materiais nobres e desenvolvemos a proposta da peça com foco em caimento e acabamento.
+              </div>
+              <div class="timeline__item">
+                <strong>3. Provas e finalização</strong>
+                Refinamos a modelagem até alcançar a peça perfeita para o seu momento especial.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="depoimentos">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">O que dizem as clientes</h2>
+              <p class="section__subtitle">
+                Experiências que reforçam o cuidado, a qualidade e a entrega impecável do atelier.
+              </p>
+            </div>
+          </div>
+
+          <div class="testimonials">
+            <article class="card testimonial">
+              <p class="testimonial__quote">
+                “O vestido ficou ainda mais lindo do que eu imaginei. O atendimento foi acolhedor e o caimento impecável.”
+              </p>
+              <div class="testimonial__author">
+                <div class="avatar">LM</div>
+                <div>
+                  <span class="author__name">Lívia M.</span>
+                  <span class="author__role">Cliente de evento social</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card testimonial">
+              <p class="testimonial__quote">
+                “O atelier entendeu exatamente o que eu queria. Cada prova trouxe mais confiança até o resultado final.”
+              </p>
+              <div class="testimonial__author">
+                <div class="avatar">AS</div>
+                <div>
+                  <span class="author__name">Ana S.</span>
+                  <span class="author__role">Noiva</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card testimonial">
+              <p class="testimonial__quote">
+                “A qualidade dos acabamentos e o cuidado com os detalhes mostram o nível premium do trabalho.”
+              </p>
+              <div class="testimonial__author">
+                <div class="avatar">CR</div>
+                <div>
+                  <span class="author__name">Carla R.</span>
+                  <span class="author__role">Consultoria de imagem</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">Perguntas frequentes</h2>
+              <p class="section__subtitle">
+                Respostas rápidas sobre prazos, encomendas e o processo de atendimento do atelier.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq">
+            <article class="card faq__item">
+              <h3 class="faq__question">Quanto tempo demora a entrega?</h3>
+              <p class="faq__answer">
+                O prazo varia conforme a complexidade da peça e a agenda de provas, mas normalmente trabalhamos entre 2 e 6 semanas.
+                Para encomendas urgentes, avaliamos a possibilidade de encaixe conforme disponibilidade.
+              </p>
+            </article>
+
+            <article class="card faq__item">
+              <h3 class="faq__question">Como fazer uma encomenda?</h3>
+              <p class="faq__answer">
+                Basta entrar em contacto pelo WhatsApp ou e-mail, enviar a referência da peça e informar a data do evento.
+                Em seguida, agendamos uma conversa para alinhar medidas, tecidos e detalhes do projeto.
+              </p>
+            </article>
+
+            <article class="card faq__item">
+              <h3 class="faq__question">Preciso ir ao atelier para fazer a encomenda?</h3>
+              <p class="faq__answer">
+                O ideal é vir ao atelier para a primeira conversa e provas, mas também podemos iniciar o processo à distância,
+                com orientação sobre medidas, referência visual e definição do estilo.
+              </p>
+            </article>
+
+            <article class="card faq__item">
+              <h3 class="faq__question">Posso solicitar ajustes depois da prova?</h3>
+              <p class="faq__answer">
+                Sim. As provas existem justamente para refinar o caimento e garantir que a peça chegue ao resultado esperado.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contato">
+        <div class="container cta">
+          <div>
+            <h2>Pronta para criar a sua próxima peça favorita?</h2>
+            <p>
+              Entre em contato para agendar uma consulta, conhecer os tecidos disponíveis e iniciar o seu projeto sob medida.
+            </p>
+          </div>
+
+          <div class="cta__actions">
+            <a class="btn btn--light" href="mailto:contato@atelieraurora.com">tujociapama@gmail.com</a>
+            <a class="btn btn--secondary" href="https://wa.me/244934622805" target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> Atelier Tujocia-Pama. Todos os direitos reservados.</span>
+        <div class="footer__links">
+          <a href="#servicos">Serviços</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contato">Contato</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const year = document.getElementById("year");
+    year.textContent = new Date().getFullYear();
+
+    const albums = {
+      gala: {
+        title: "Vestidos de gala",
+        kicker: "Coleção 01",
+        description: "Silhuetas fluidas, bordados delicados e tecidos nobres para momentos que pedem presença marcante.",
+        images: [
+          {
+            src: "assets/img9.jpg",
+            alt: "Vestido de gala em tecido fluido com iluminação suave",
+          },
+          {
+            src: "assets/img13.jpg",
+            alt: "Modelo de vestido de gala com brilho delicado e caimento elegante",
+          }
+        ],
+      },
+      autorais: {
+        title: "Peças autorais",
+        kicker: "Coleção 02",
+        description: "Criações exclusivas com linguagem contemporânea, cortes precisos e acabamento artesanal.",
+        images: [
+          {
+            src: "assets/img4.jpg",
+            alt: "Peça autoral com textura sofisticada e caimento estruturado",
+          },
+          {
+            src: "assets/img2.jpg",
+            alt: "Look autoral com design elegante e delicado",
+          }
+        ],
+      },
+      eventos: {
+        title: "Ocasiões especiais",
+        kicker: "Coleção 03",
+        description: "Peças pensadas para celebrar com conforto, imponência e leveza em cada movimento.",
+        images: [
+          {
+            src: "assets/img10.jpg",
+            alt: "Vestimenta elegante para evento com acabamento refinado",
+          },
+          {
+            src: "assets/img3.jpg",
+            alt: "Look sofisticado para evento social com tons suaves",
+          }
+        ],
+      },
+    };
+
+    const modal = document.getElementById("gallery-modal");
+    const modalImage = document.getElementById("gallery-modal-image");
+    const modalKicker = document.getElementById("gallery-modal-kicker");
+    const modalTitle = document.getElementById("gallery-modal-title");
+    const modalDescription = document.getElementById("gallery-modal-description");
+    const modalThumbs = document.getElementById("gallery-modal-thumbs");
+    const prevButton = modal.querySelector("[data-gallery-prev]");
+    const nextButton = modal.querySelector("[data-gallery-next]");
+    const closeControls = modal.querySelectorAll("[data-close-gallery]");
+    const albumButtons = document.querySelectorAll("[data-album]");
+
+    let activeAlbumKey = "";
+    let activeImageIndex = 0;
+    let lastTrigger = null;
+
+    const renderModal = () => {
+      const album = albums[activeAlbumKey];
+
+      if (!album) {
+        return;
+      }
+
+      const activeImage = album.images[activeImageIndex];
+      modalImage.src = activeImage.src;
+      modalImage.alt = activeImage.alt;
+      modalKicker.textContent = album.kicker;
+      modalTitle.textContent = album.title;
+      modalDescription.textContent = album.description;
+      modalThumbs.innerHTML = "";
+
+      album.images.forEach((image, index) => {
+        const thumbButton = document.createElement("button");
+        thumbButton.type = "button";
+        thumbButton.className = "gallery-modal__thumb";
+        thumbButton.setAttribute("aria-label", `Ver foto ${index + 1} de ${album.images.length}`);
+        if (index === activeImageIndex) {
+          thumbButton.classList.add("is-active");
+        }
+
+        const thumbImage = document.createElement("img");
+        thumbImage.src = image.src;
+        thumbImage.alt = image.alt;
+        thumbButton.appendChild(thumbImage);
+
+        thumbButton.addEventListener("click", () => {
+          activeImageIndex = index;
+          renderModal();
+        });
+
+        modalThumbs.appendChild(thumbButton);
+      });
+    };
+
+    const openGallery = (albumKey, triggerElement) => {
+      const album = albums[albumKey];
+
+      if (!album) {
+        return;
+      }
+
+      activeAlbumKey = albumKey;
+      activeImageIndex = 0;
+      lastTrigger = triggerElement;
+      renderModal();
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      const closeButton = modal.querySelector(".gallery-modal__close");
+      if (closeButton instanceof HTMLElement) {
+        closeButton.focus();
+      }
+    };
+
+    const closeGallery = () => {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      activeAlbumKey = "";
+      activeImageIndex = 0;
+
+      if (lastTrigger instanceof HTMLElement) {
+        lastTrigger.focus();
+      }
+    };
+
+    const moveGallery = (direction) => {
+      const album = albums[activeAlbumKey];
+
+      if (!album) {
+        return;
+      }
+
+      const length = album.images.length;
+      activeImageIndex = (activeImageIndex + direction + length) % length;
+      renderModal();
+    };
+
+    albumButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        openGallery(button.dataset.album ?? "", button);
+      });
+    });
+
+    prevButton.addEventListener("click", () => moveGallery(-1));
+    nextButton.addEventListener("click", () => moveGallery(1));
+
+    closeControls.forEach((control) => {
+      control.addEventListener("click", closeGallery);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!modal.classList.contains("is-open")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        closeGallery();
+      }
+
+      if (event.key === "ArrowLeft") {
+        moveGallery(-1);
+      }
+
+      if (event.key === "ArrowRight") {
+        moveGallery(1);
+      }
+    });
+  </script>
+</body>
+</html>
